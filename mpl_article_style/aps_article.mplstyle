@@ -1,0 +1,107 @@
+# A personal stylesheet
+# Refs:
+# http://www.lithoguru.com/scientist/litho_papers/JM3%20editorial%202014%20q1_Figures%20part2.pdf
+# https://github.com/garrettj403/SciencePlots
+# https://betterfigures.org/2015/06/23/picking-a-colour-scale-for-scientific-graphics/
+#
+
+# Set color cycle -- I kinda like matplotlib 3's default (Tableau T10)
+# axes.prop_cycle:     cycler('color', ['0C5DA5', '00B945', 'FF9500', 'FF2C00', '845B97', '474747', '9e9e9e'])
+
+# seaborn.set(style='white')
+axes.prop_cycle:       cycler('color', ['4c72b0', 'dd8452', '55a868', 'c44e52', '8172b3', '937860', 'da8bc3', '8c8c8c', 'ccb974', '64b5cd'])
+
+# tableau-colorblind10
+# axes.prop_cycle:     cycler('color', ['006ba4', 'ff800e', 'ababab', '595959', '5f9ed1', 'c85200', '898989', 'a2c8ec', 'ffbc79', 'cfcfcf'])
+
+# Set default figure size
+figure.facecolor:      white
+figure.figsize:        3.404, 2.553  # single column, 4:3  # 3.375, 2.53
+
+# The figure subplot parameters.  All dimensions are a fraction of the figure size
+figure.subplot.wspace: 0.2    # the amount of width reserved for blank space between subplots,
+                              # expressed as a fraction of the average axis width
+figure.subplot.hspace: 0.25   # the amount of height reserved for white space between subplots,
+                              # expressed as a fraction of the average axis height
+
+
+# stix font for everything:
+# https://www.southampton.ac.uk/~feeg1001/notebooks/Matplotlib.html
+font.size:             8  # 8.5
+font.family:           STIXGeneral
+
+# The following settings allow you to select the fonts in math mode.
+# They map from a TeX font name to a fontconfig font pattern.
+# These settings are only used if mathtext.fontset is 'custom'.
+# Note that this "custom" mode is unsupported and may go away in the
+# future.
+#mathtext.cal :        cursive
+#mathtext.rm  :        serif
+#mathtext.tt  :        monospace
+#mathtext.it  :        serif:italic
+#mathtext.bf  :        serif:bold
+#mathtext.sf  :        sans
+mathtext.fontset:      stix # Should be 'dejavusans' (default),
+#                                'dejavuserif', 'cm' (Computer Modern), 'stix',
+#                                'stixsans' or 'custom'
+#mathtext.fallback_to_cm : True  # When True, use symbols from the Computer Modern
+                                 # fonts when a symbol can not be found in one of
+                                 # the custom math fonts.
+
+mathtext.default:      regular # The default font to use for math.
+                       # Can be any of the LaTeX font names, including
+                       # the special name "regular" for the same font
+                       # used in regular text.
+
+# Set x axis
+xtick.direction:       in
+xtick.major.size:      3
+xtick.major.width:     0.5
+xtick.minor.size:      1.5
+xtick.minor.width:     0.5
+# xtick.minor.visible: True
+xtick.top:             True
+
+# Set y axis
+ytick.direction:       in
+ytick.major.size:      3
+ytick.major.width:     0.5
+ytick.minor.size:      1.5
+ytick.minor.width:     0.5
+# ytick.minor.visible: True
+ytick.right:           True
+
+# Set lines and makrers
+axes.linewidth:        0.5
+lines.linewidth:       1.0
+lines.markersize:      3
+lines.markeredgewidth: 0.6
+
+# x/y labels
+axes.labelpad:         3
+
+# legend frame
+legend.frameon:        True
+# Dimensions as fraction of fontsize:
+legend.handletextpad:  0.4      # the space between the legend line and legend text
+
+# grid
+axes.grid:             False
+grid.linewidth:        0.5
+
+# images
+# image.origin:        upper
+# image.cmap:          viridis
+
+# Always save as 'tight'
+savefig.bbox:          tight
+savefig.pad_inches:    0.05
+
+# Use serif fonts -- NEVER but leave it here as a reference
+# font.serif:          Times New Roman
+# font.family:         serif
+
+# Use LaTeX for math formatting -- it doesn't play nice
+# try to use pgfplots / pythontex instead
+# text.usetex:         True
+# text.latex.preamble: \usepackage{amsmath}, \usepackage{pgfplots}, \usepackage[T1]{fontenc}
