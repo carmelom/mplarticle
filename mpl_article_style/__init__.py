@@ -1,14 +1,27 @@
 #!/usr/bin/env python
 
-from pathlib import Path
-import matplotlib.pyplot as plt
-
+# import __main__ as main
 from .variables import *
 from .plot_utils import *
 
-wdir = Path(__file__).parent
-style_path = str(wdir / 'aps_article.mplstyle')
-print(f"Apply style {style_path}")
-plt.style.use(style_path)
+from . import style
+
+style.set_color_cycle()
+# # from .style import use
+# # import .style
+# # import from_palettable
+#
+# __all__ = ['style']
 
 
+# try:
+#     config_file = Path(main.__file__).parent.resolve() / 'config.yaml'
+#     conf = yaml.load(str(config_file))
+#     style_name = conf['style_name']
+#     print(f"Loading {style_name} from {config_file}")
+# except Exception as e:
+#     print(e)
+#     print('fallback to aps style')
+#     style_name = 'aps_article'
+#
+# use('aps_article')

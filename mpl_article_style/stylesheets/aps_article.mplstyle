@@ -72,6 +72,8 @@ ytick.minor.width:     0.5
 ytick.right:           True
 
 # Set lines and makrers
+lines.marker:          o
+lines.linestyle:       none
 axes.linewidth:        0.5
 lines.linewidth:       1.0
 lines.markersize:      3
@@ -90,8 +92,13 @@ axes.grid:             False
 grid.linewidth:        0.5
 
 # images
-# image.origin:        upper
+image.aspect:          1
+image.origin:          lower
+image.interpolation:   none
 # image.cmap:          viridis
+
+### PATCHES
+patch.linewidth:       0.8       # edge width in points.
 
 # Always save as 'tight'
 savefig.bbox:          tight

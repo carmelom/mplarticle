@@ -11,6 +11,27 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib import colors as mpc
+import colorsys
+
+
+def lighten_color(color, amount=0.5):
+    """
+    https://stackoverflow.com/a/49601444/11754331
+    Lightens the given color by multiplying (1-luminosity) by the given amount.
+    Input can be matplotlib color string, hex string, or RGB tuple.
+
+    Examples:
+    >> lighten_color('g', 0.3)
+    >> lighten_color('#F034A3', 0.6)
+    >> lighten_color((.3,.55,.1), 0.5)
+    """
+    try:
+        c = mpc.cnames[color]
+    except KeyError:
+        c = color
+    c = colorsys.rgb_to_hls(*mpc.to_rgb(c))
+    c_light = colorsys.hls_to_rgb(c[0], 1 - amount * (1 - c[1]), c[2])
+    return mpc.to_hex(c_light)
 
 
 def set_mfalpha(line, alpha=0.4):
@@ -39,6 +60,33 @@ def label_subplots(fig=None, axes=None, xpos=-0.05, ypos=1.05, scale_text=1.15, 
                 # family='sans-serif',
                 weight='bold', fontsize=size,
                 transform=ax.transAxes,)
+
+
+def draw_ruler(ax, x, y, length, text='', lw=2, color='w', line_kwargs={}, text_kwargs={}):
+    ax.plot([x, x + length], [y] * 2, color=color, lw=lw, **line_kwargs)
+    ax.text(x, y, text, ha='left', va='bottom', color=color, **text_kwargs)
+
+
+def ext_axes(ax, orig, lenx, leny, labelx='$x$', labely='$y$', scale_text=1.0):
+    size = plt.rcParams['font.size'] * scale_text
+    ax.annotate(labelx,
+                xy=orig, xycoords='axes fraction',
+                xytext=(orig[0] + lenx, orig[1]), textcoords='axes fraction',
+                arrowprops=dict(arrowstyle="<-", color='k',
+                                connectionstyle="arc3"),
+                horizontalalignment='center',
+                verticalalignment='center',
+                color='k',
+                fontsize=size)
+    ax.annotate(labely,
+                xy=orig, xycoords='axes fraction',
+                xytext=(orig[0], orig[1] + leny), textcoords='axes fraction',
+                arrowprops=dict(arrowstyle="<-", color='k',
+                                connectionstyle="arc3"),
+                horizontalalignment='center',
+                verticalalignment='center',
+                color='k',
+                fontsize=size)
 
 
 def check_scriptname():
