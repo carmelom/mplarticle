@@ -49,7 +49,7 @@ def set_palette(palette, lighten=0.4):
 
 
 def set_colormap(cmap):
-    plt.register_cmap(cmap)
+    plt.register_cmap(name=cmap.name, cmap=cmap)
     plt.rcParams['image.cmap'] = cmap.name
 
 
