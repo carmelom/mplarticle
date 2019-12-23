@@ -48,18 +48,25 @@ def ax_mfalpha(ax, alpha=0.4):
     return ax
 
 
-def label_subplots(fig=None, axes=None, xpos=-0.05, ypos=1.05, scale_text=1.15, letters=None):
+def label_subplots(fig=None, axes=None, xpos=-0.05, ypos=1.05, scale_text=1.15, letters=None, style='brackets', transform=None):
     if axes is None:
         fig = plt.gcf() if fig is None else fig
         axes = fig.axes
     size = plt.rcParams['font.size'] * scale_text
     letters = list(map(chr, range(97, 97 + len(axes)))
                    ) if letters is None else letters
+    transform = ax.transAxes if transform is None else transform
+    if style == 'brackets':
+        labeltext = '({label:s})'
+    else:
+        labeltext = '{label:s}.'
     for ax, label in zip(axes, letters):
-        ax.text(xpos, ypos, f'{label}.', ha='center', va='center',
+        ax.text(xpos, ypos, labeltext.format(label=label), ha='center', va='center',
                 # family='sans-serif',
-                weight='bold', fontsize=size,
-                transform=ax.transAxes,)
+                # weight='bold',
+                fontsize=size,
+                transform=transform,
+                )
 
 
 def draw_ruler(ax, x, y, length, text='', lw=2, color='w', line_kwargs={}, text_kwargs={}):
