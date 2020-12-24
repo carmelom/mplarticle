@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 # import __main__ as main
-# from .variables import *
-# from .plot_utils import *
+from .variables import *
+from .plot_utils import *
 
 from . import style
 

@@ -11,6 +11,8 @@ textwidth_in = 7.056
 textwidth_in_osa = 5.25  # 4.732
 columnwidth_in = 3.404
 
+gray_colors = dict(color='gray', mfc='#cccccc', mec='gray', )
+
 kw_od = dict(vmin=-0.05, vmax=2, cmap='gist_stern')
 
 kw_abel = dict(marker='o', ls='', color='C0')

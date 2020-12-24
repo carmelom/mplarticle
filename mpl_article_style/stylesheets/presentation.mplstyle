@@ -1,0 +1,82 @@
+# A personal stylesheet
+# Refs:
+# http://www.lithoguru.com/scientist/litho_papers/JM3%20editorial%202014%20q1_Figures%20part2.pdf
+# https://github.com/garrettj403/SciencePlots
+# https://betterfigures.org/2015/06/23/picking-a-colour-scale-for-scientific-graphics/
+
+
+figure.facecolor:            white
+# figure.figsize:              3.404, 2.553  # single column, 4:3
+# figure.figsize:              2.8, 2.00  # single column, 4:3
+figure.figsize:              2.58, 1.84  # single column, 4:3
+
+figure.dpi:                  180
+
+# The figure subplot parameters.  All dimensions are a fraction of the figure size
+figure.subplot.wspace:       0.24    # the amount of width reserved for blank space between subplots,
+                                     # expressed as a fraction of the average axis width
+figure.subplot.hspace:       0.24  # 0.26  # 0.195   # the amount of height reserved for white space between subplots,
+                                     # expressed as a fraction of the average axis height
+figure.subplot.left    :     0.15  ## the left side of the subplots of the figure
+figure.subplot.right   :     0.97    ## the right side of the subplots of the figure
+figure.subplot.bottom  :     0.2   ## the bottom of the subplots of the figure
+figure.subplot.top     :     0.97  # 0.87   ## the top of the subplots of the figure
+
+# stix font for everything:
+# https://www.southampton.ac.uk/~feeg1001/notebooks/Matplotlib.html
+font.size:                   8  # 8.5
+font.family:                 STIXGeneral
+
+mathtext.fontset:            stix
+mathtext.default:            regular
+axes.formatter.use_mathtext: True
+
+# Set x axis
+xtick.direction:             in
+xtick.major.size:            3
+xtick.major.width:           0.5
+xtick.minor.size:            1.5
+xtick.minor.width:           0.5
+xtick.top:                   True
+
+# Set y axis
+ytick.direction:             in
+ytick.major.size:            3
+ytick.major.width:           0.5
+ytick.minor.size:            1.5
+ytick.minor.width:           0.5
+ytick.right:                 True
+
+
+# Set lines and makrers
+axes.linewidth:              0.5
+lines.linewidth:             0.85  # 1.0
+lines.markersize:            3.3
+lines.markeredgewidth:       0.75
+
+# x/y labels
+axes.labelpad:               2.1  # 1.8
+
+# legend frame
+legend.frameon:              True
+# Dimensions as fraction of fontsize:
+legend.handletextpad:        0.6      # the space between the legend line and legend text
+legend.fontsize      :       6
+legend.borderaxespad :       1
+
+# grid
+axes.grid:                   False
+grid.linewidth:              0.5
+
+# images
+image.aspect:                1
+image.origin:                upper
+image.interpolation:         none
+image.cmap:                viridis
+
+### PATCHES
+patch.linewidth:             0.8       # edge width in points.
+
+# savefig.bbox:              tight
+# figure.autolayout:         True
+# figure.constrained_layout.use : True
